@@ -12,11 +12,11 @@ public class Gui {
 		Var.jf1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Var.jf1.setLocationRelativeTo(null);
 		Var.jf1.setLayout(null);
-		Var.jf1.setTitle("Space Adventure");
+		Var.jf1.setTitle("ProjektArbeit Rollins");
 		Var.jf1.setResizable(false);
-		Var.jf1.addKeyListener(new KeyHandler());
+		Var.jf1.addKeyListener(new Keyhandler());
 		Var.jf1.requestFocus();
-		Var.jf1.addKeyListener((KeyListener) new KeyHandler());
+		Var.jf1.addKeyListener((KeyListener) new Keyhandler());
 		Var.jf1.setVisible(true);
 		
 		Var.lbl1 = new Label ();
