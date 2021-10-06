@@ -7,7 +7,7 @@ public class MayaZahlenUmrechner {
 		new Gui();
 		new Var();
 		new Label();
-		
+		new Listener();
 		
 		
 		
