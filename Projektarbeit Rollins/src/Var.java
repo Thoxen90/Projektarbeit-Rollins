@@ -17,10 +17,22 @@ public class Var {
 	
 	static Label lbl1;
 
-	static BufferedImage ib1, ib2;
+	static BufferedImage ib1;
+	
+	static JButton btnProcess,btnExit;
+	
+	
+	
 	
 	
 	public Var() {
+		
+		try {
+			ib1 = ImageIO.read(new File("rsc/b1.png"));
+		}catch(IOException e) {
+			e.printStackTrace();
+			System.out.println("Bilder konnten nicht geladen werden");
+		}
 		
 	}
 }
