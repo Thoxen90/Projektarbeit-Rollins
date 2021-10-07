@@ -3,15 +3,13 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
-import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.*;
 import java.util.Random;
 
 public class Var {
 
 	static JFrame jf1;
-	static int screenwidth = 800, screenheight = 600;
+	static int screenwidth = 800, screenheight = 800;
 	static int backgroundY1 = 0;
 	static int x = 400, y = 400;
 	static String[] tempDeziEingabe,tempDeziEingabeRow;
@@ -24,8 +22,7 @@ public class Var {
 	
 	static JButton btnProcess,btnExit;
 	static JTextArea deziEingabe,mayaEingabe,Ausgabe;
-	
-	
+	static JScrollPane scroll;
 	
 	
 	public Var() {

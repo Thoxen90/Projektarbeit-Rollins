@@ -3,6 +3,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 import java.awt.Color;
 
 
@@ -11,6 +13,9 @@ public class Gui {
 	public Gui() {
 
 		Var.jf1 = new JFrame();
+		
+		Var.jf1.getContentPane().setLayout(new FlowLayout());
+		
 		
 		Var.jf1.setSize(Var.screenwidth,Var.screenheight);
 		Var.jf1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -32,15 +37,16 @@ public class Gui {
 		Var.jf1.add(Var.lbl1);			
 		
 		Var.deziEingabe = new JTextArea();
-		Var.deziEingabe.setBounds(10,50,300,100);
+		Var.deziEingabe.setBounds(10,50,400,100);
+		Var.deziEingabe.setLineWrap(true);
+		Var.deziEingabe.setAutoscrolls(true);
+		Var.scroll = new JScrollPane(Var.deziEingabe);
+		Var.scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		Var.jf1.add(Var.deziEingabe);
 		
-		Var.mayaEingabe = new JTextArea();
-		Var.mayaEingabe.setBounds(420,50,300,100);
-		Var.jf1.add(Var.mayaEingabe);
-		
+
 		Var.Ausgabe = new JTextArea();
-		Var.Ausgabe.setBounds(10,200,600,300);
+		Var.Ausgabe.setBounds(10,450,600,300);
 		Var.jf1.add(Var.Ausgabe);
 		
 		

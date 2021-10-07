@@ -25,9 +25,9 @@ public class Label extends JLabel{
 		g.setColor(new Color(0,0,0));
 		g.setFont(new Font("Arial",Font.BOLD,15));
 		
-		g.drawString("MayaZahl Eingabe", 10, 30);
-		g.drawString("DeziZahl Eingabe",420,30);
-		g.drawString("Ausgabe", 10, 180);
+		
+		g.drawString("Hurensohn",10,30);
+		g.drawString("Ausgabe", 10, 430);
 		
 		
 		
