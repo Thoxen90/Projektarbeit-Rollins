@@ -9,7 +9,7 @@ import javax.swing.*;
 public class Var {
 
 	static JFrame jf1,jf2;
-	static int screenwidth = 800, screenheight = 800;
+	static int screenwidth = 1000, screenheight = 800;
 	static int backgroundY1 = 0;
 	static int x = 400, y = 400;
 	static String[] tempDeziEingabe,tempDeziEingabeRow;
@@ -28,8 +28,8 @@ public class Var {
 	static JButton btnProcess,btnExit,btnImport;
 	static JTextArea deziEingabe,mayaEingabe,Ausgabe;
 	static JTextField CSVPath;
-	static JScrollPane scroll;
-	
+	static JScrollPane scroll,scroll2;
+	static String[] speicher = new String[10];
 	
 	public Var() {
 		

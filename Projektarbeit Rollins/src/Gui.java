@@ -34,13 +34,13 @@ public class Gui {
 		Var.CSVPath = new JTextField();
 		Var.CSVPath.setBounds(100,20,200,20);
 		Var.jf2.add(Var.CSVPath);
-		
+		Var.jf2.requestFocus();
 		Var.btnImport = new JButton("Import");
 		Var.btnImport.setBounds(140,60,80,20);
 		Var.btnImport.addActionListener(new Listener());
 		Var.jf2.add(Var.btnImport);
 		
-		Var.jf2.requestFocus();
+		
 		
 		
 		Var.jf1 = new JFrame();
@@ -54,7 +54,7 @@ public class Gui {
 		Var.jf1.setTitle("ProjektArbeit Rollins");
 		
 		Var.jf1.setBackground(new Color(0,20,30));		
-		Var.jf1.setResizable(false);
+		Var.jf1.setResizable(true);
 		Var.jf1.addKeyListener(new Keyhandler());
 		Var.jf1.requestFocus();
 		Var.jf1.addKeyListener((KeyListener) new Keyhandler());
@@ -71,13 +71,18 @@ public class Gui {
 		Var.deziEingabe.setLineWrap(true);
 		Var.deziEingabe.setAutoscrolls(true);
 		Var.scroll = new JScrollPane(Var.deziEingabe);
-		Var.scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-		Var.jf1.add(Var.deziEingabe);
+		Var.scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+		Var.scroll.setBounds(10,50,150,360);
+		Var.jf1.add(Var.scroll);
+		
 		
 
 		Var.Ausgabe = new JTextArea();
-		Var.Ausgabe.setBounds(200,50,550,600);
-		Var.jf1.add(Var.Ausgabe);
+		Var.Ausgabe.setBounds(200,50,750,600);
+		Var.scroll2 = new JScrollPane(Var.Ausgabe);
+		Var.scroll2.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		Var.scroll2.setBounds(200,50,750,600);
+		Var.jf1.add(Var.scroll2);
 		
 		
 		

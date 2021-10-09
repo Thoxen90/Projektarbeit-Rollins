@@ -4,9 +4,6 @@ import java.math.*;
 import java.io.*;
 import java.util.Scanner;
 
-import javax.imageio.ImageIO;
-
-
 public class Listener implements ActionListener {
 
 	@Override
@@ -14,12 +11,13 @@ public class Listener implements ActionListener {
 		Var.command = f.getActionCommand();
 
 		if (Var.command.equals("Process")) {
-			
+
 			System.out.println(Var.deziEingabe.getText());
 
 			Var.tempDeziEingabe = Var.deziEingabe.getText().split("\n");
-			
-			Var.Ausgabe.setText("Anzahl der gelesenen Zahlen: "+String.valueOf(Var.tempDeziEingabe.length)+"\n\nMayazahlen:\n");
+
+			Var.Ausgabe.setText(
+					"Anzahl der gelesenen Zahlen: " + String.valueOf(Var.tempDeziEingabe.length) + "\n\nMayazahlen:\n");
 
 			for (int i = 0; i < Var.tempDeziEingabe.length; i++) {
 				Var.tempDeziEingabeRow = Var.tempDeziEingabe[i].split(" ");
@@ -27,13 +25,14 @@ public class Listener implements ActionListener {
 				Var.tempZahl2 = 0;
 				Var.tempErgebnis = 0;
 				Var.tempErgebnis2 = 0;
+				Var.counter = 0;
 
 				// System.out.println(Var.tempDeziEingabeRow.length);
-				
 
 				if (Var.tempDeziEingabeRow[0].equals("D")) {
 					// System.out.println("TestDD");
-					//Var.Ausgabe.setText(Var.Ausgabe.getText()+"\t");
+					// Var.Ausgabe.setText(Var.Ausgabe.getText()+"\t");
+
 					for (int k = 1; k < Var.tempDeziEingabeRow.length; k++) {
 
 						while (Integer.parseInt(Var.tempDeziEingabeRow[k].trim()) - Var.tempErgebnis > 19) {
@@ -57,6 +56,7 @@ public class Listener implements ActionListener {
 							// System.out.println("tempErgebnis: " + tempErgebnis);
 
 							if (Var.tempZahl2 != 0) {
+								Var.speicher[Var.counter] = String.valueOf(Var.tempZahl2);
 								switch (Var.tempZahl2) {
 								case 0:
 									Var.Ausgabe.setText(Var.Ausgabe.getText() + " 0");
@@ -120,8 +120,9 @@ public class Listener implements ActionListener {
 									break;
 								}
 							}
+							Var.counter++;
 						}
-						//System.out.println(Integer.parseInt(Var.tempDeziEingabeRow[k].trim())-Var.tempErgebnis);
+						// System.out.println(Integer.parseInt(Var.tempDeziEingabeRow[k].trim())-Var.tempErgebnis);
 						switch (Integer.parseInt(Var.tempDeziEingabeRow[k].trim()) - Var.tempErgebnis) {
 						case 0:
 							Var.Ausgabe.setText(Var.Ausgabe.getText() + " 0");
@@ -184,18 +185,23 @@ public class Listener implements ActionListener {
 							Var.Ausgabe.setText(Var.Ausgabe.getText() + " |||****");
 							break;
 						}
-						
-						Var.Ausgabe.setText(Var.Ausgabe.getText()+"\t=\t(");
-						
-						
-						
+						Var.speicher[Var.counter] = String.valueOf(Integer.parseInt(Var.tempDeziEingabeRow[k].trim()) - Var.tempErgebnis);
+						System.out.println("Zwischenspeicher: " + Var.speicher[Var.counter]);
+
+						Var.Ausgabe.setText(Var.Ausgabe.getText() + "\t=\t(");
+						for (int ab = 0; ab < Var.counter + 1; ab++) {
+							System.out.println("loop " + Var.speicher[ab]);
+							Var.Ausgabe.setText(Var.Ausgabe.getText() + Var.speicher[ab] + "\t");
+						}
+						Var.Ausgabe.setText(Var.Ausgabe.getText()+")\t=\t"+Var.tempDeziEingabeRow[k]);
+
 					}
 				} else if (Var.tempDeziEingabeRow[0].equals("M")) {
 
 					int zähler = 0;
 					System.out.println("Rowlength: " + Var.tempDeziEingabeRow.length);
 					for (int az = 1; az < Var.tempDeziEingabeRow.length; az++) {
-						//System.out.println(Var.tempDeziEingabeRow[az]);
+						// System.out.println(Var.tempDeziEingabeRow[az]);
 						switch (Var.tempDeziEingabeRow[az].trim()) {
 						case "0":
 							zähler += 0 * Math.pow(20, Var.tempDeziEingabeRow.length - az - 1);
@@ -268,26 +274,25 @@ public class Listener implements ActionListener {
 
 			Var.jf1.requestFocus();
 		}
-		
-		System.out.println(Var.command);
+
 		if (Var.command.equals("Import")) {
 			try {
-				Var.CSV = new File(".\\rsc\\"+Var.CSVPath.getText()+".csv");
+				Var.CSV = new File(".\\rsc\\" + Var.CSVPath.getText() + ".csv");
 				Scanner sc = new Scanner(Var.CSV);
 				sc.useDelimiter("\n");
-				while(sc.hasNext()) {
+				while (sc.hasNext()) {
 					Var.Importstring = sc.next();
-					Var.deziEingabe.setText(Var.deziEingabe.getText()+Var.Importstring);
-					Var.deziEingabe.setText(Var.deziEingabe.getText()+"\n");
+					Var.deziEingabe.setText(Var.deziEingabe.getText() + Var.Importstring);
+					Var.deziEingabe.setText(Var.deziEingabe.getText() + "\n");
 				}
 				System.out.println("Datei geladen");
 				sc.close();
-				Var.loadCSVLabel=false;
+				Var.loadCSVLabel = false;
 				Var.jf1.setVisible(true);
 				Var.jf1.requestFocus();
 				Var.jf2.setVisible(false);
-				
-			}catch(Exception e) {
+
+			} catch (Exception e) {
 				e.printStackTrace();
 				System.out.println("CSV File konnte nicht geladen werden");
 			}
