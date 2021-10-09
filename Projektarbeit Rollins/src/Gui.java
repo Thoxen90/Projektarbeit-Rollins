@@ -12,11 +12,41 @@ public class Gui {
 
 	public Gui() {
 
+		Var.jf2 = new JFrame();
+		
+		Var.jf2.setSize(350,150);
+		Var.jf2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Var.jf2.setLocationRelativeTo(null);
+		Var.jf2.setLayout(null);
+		Var.jf2.setTitle("CSV Reader ProjektArbeit Rollins");
+		
+		Var.jf2.setBackground(new Color(0,20,30));
+		Var.jf2.setResizable(false);
+		Var.jf2.addKeyListener(new Keyhandler());
+		Var.jf2.setVisible(true);
+		
+		Var.lbl2 = new Label();
+		Var.lbl2.setBounds(0,0,200,50);
+		Var.lbl2.setVisible(true);
+		
+		Var.jf2.add(Var.lbl2);
+		
+		Var.CSVPath = new JTextField();
+		Var.CSVPath.setBounds(100,20,200,20);
+		Var.jf2.add(Var.CSVPath);
+		
+		Var.btnImport = new JButton("Import");
+		Var.btnImport.setBounds(140,60,80,20);
+		Var.btnImport.addActionListener(new Listener());
+		Var.jf2.add(Var.btnImport);
+		
+		Var.jf2.requestFocus();
+		
+		
 		Var.jf1 = new JFrame();
 		
 		Var.jf1.getContentPane().setLayout(new FlowLayout());
-		
-		
+	
 		Var.jf1.setSize(Var.screenwidth,Var.screenheight);
 		Var.jf1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Var.jf1.setLocationRelativeTo(null);
@@ -29,15 +59,15 @@ public class Gui {
 		Var.jf1.requestFocus();
 		Var.jf1.addKeyListener((KeyListener) new Keyhandler());
 		Var.jf1.requestFocus();
-		Var.jf1.setVisible(true);
+		Var.jf1.setVisible(false);
 		
-		Var.lbl1 = new Label ();
+		Var.lbl1 = new Label();
 		Var.lbl1.setBounds(0,0,Var.screenwidth,Var.screenheight);
 		Var.lbl1.setVisible(true);
 		Var.jf1.add(Var.lbl1);			
 		
 		Var.deziEingabe = new JTextArea();
-		Var.deziEingabe.setBounds(10,50,400,100);
+		Var.deziEingabe.setBounds(10,50,150,350);
 		Var.deziEingabe.setLineWrap(true);
 		Var.deziEingabe.setAutoscrolls(true);
 		Var.scroll = new JScrollPane(Var.deziEingabe);
@@ -46,14 +76,13 @@ public class Gui {
 		
 
 		Var.Ausgabe = new JTextArea();
-		Var.Ausgabe.setBounds(10,450,600,300);
+		Var.Ausgabe.setBounds(200,50,550,600);
 		Var.jf1.add(Var.Ausgabe);
 		
 		
-		Var.jf1.requestFocus();
 		
 		Var.btnProcess = new JButton("Process");
-		Var.btnProcess.setBounds(650,340,100,30);
+		Var.btnProcess.setBounds(50,600,100,30);
 		Var.btnProcess.addActionListener(new Listener());
 		Var.jf1.add(Var.btnProcess);
 		

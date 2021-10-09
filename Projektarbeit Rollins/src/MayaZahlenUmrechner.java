@@ -9,7 +9,6 @@ public class MayaZahlenUmrechner {
 		new Label();
 		new Listener();
 		
-		
 	}
 
 }
